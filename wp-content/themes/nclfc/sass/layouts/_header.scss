@@ -1,0 +1,15 @@
+.site-header {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background: $color-green;
+  height: 75px;
+}
+
+.custom-logo {
+  width: 140px;
+  height: 140px;
+  position: relative;
+  top: 45px;
+  z-index: 10;
+}

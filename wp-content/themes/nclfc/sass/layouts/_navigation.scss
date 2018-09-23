@@ -1,0 +1,44 @@
+.main-navigation {
+  width: 100%;
+
+  ul {
+    display: flex;
+    justify-content: space-around;
+    padding: 0;
+
+    li {
+      display: inline;
+
+      a {
+        color: white;
+        text-decoration: none;
+        text-transform: lowercase;
+      }
+    }
+  }
+}
+
+/* Small menu. */
+.menu-toggle {
+  display: none;
+}
+
+@media screen and (max-width: 767px) {
+  .main-navigation ul {
+    display: none;
+  }
+
+  .menu-toggle,
+  .main-navigation.toggled ul {
+  	display: block;
+
+    li {
+      display: block;
+    }
+  }
+
+  .menu-menu-right-container {
+    position: absolute;
+    z-index: 10;
+  }
+}

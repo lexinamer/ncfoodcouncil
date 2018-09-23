@@ -8,43 +8,24 @@
  */
 
 if ( ! function_exists( 'nclfc_setup' ) ) :
-	/**
-	 * Sets up theme defaults and registers support for various WordPress features.
-	 *
-	 * Note that this function is hooked into the after_setup_theme hook, which
-	 * runs before the init hook. The init hook is too late for some features, such
-	 * as indicating support for post thumbnails.
-	 */
 	function nclfc_setup() {
-		/*
-		 * Make theme available for translation.
-		 * Translations can be filed in the /languages/ directory.
-		 * If you're building a theme based on NCFoodCouncil, use a find and replace
-		 * to change 'nclfc' to the name of your theme in all the template files.
-		 */
-		load_theme_textdomain( 'nclfc', get_template_directory() . '/languages' );
-
 		// Add default posts and comments RSS feed links to head.
 		add_theme_support( 'automatic-feed-links' );
 
 		/*
 		 * Let WordPress manage the document title.
-		 * By adding theme support, we declare that this theme does not use a
-		 * hard-coded <title> tag in the document head, and expect WordPress to
-		 * provide it for us.
 		 */
 		add_theme_support( 'title-tag' );
 
 		/*
 		 * Enable support for Post Thumbnails on posts and pages.
-		 *
-		 * @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
 		 */
 		add_theme_support( 'post-thumbnails' );
 
 		// This theme uses wp_nav_menu() in one location.
 		register_nav_menus( array(
-			'menu-1' => esc_html__( 'Primary', 'nclfc' ),
+			'menu-left' => esc_html__( 'Primary Left', 'nclfc' ),
+			'menu-right' => esc_html__( 'Primary Right', 'nclfc' ),
 		) );
 
 		/*
@@ -126,11 +107,21 @@ function nclfc_scripts() {
 
 	wp_enqueue_script( 'nclfc-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
 
+
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
 }
 add_action( 'wp_enqueue_scripts', 'nclfc_scripts' );
+
+
+// Add Google Fonts
+function add_google_fonts() {
+	wp_enqueue_style( 'wpb-google-fonts', 'https://fonts.googleapis.com/css?family=Nunito+Sans:300,300i,400,400i,600,600i,700,700i,800,800i,900,900i', false );
+	}
+
+add_action( 'wp_enqueue_scripts', 'add_google_fonts' );
+
 
 /**
  * Implement the Custom Header feature.
@@ -158,4 +149,3 @@ require get_template_directory() . '/inc/customizer.php';
 if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
-

@@ -24,32 +24,29 @@
 <div id="page" class="site">
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'nclfc' ); ?></a>
 
-	<header id="masthead" class="site-header">
+	<header class="site-header">
+		<nav class="main-navigation">
+			<?php
+			wp_nav_menu( array(
+				'theme_location' => 'menu-left',
+				'menu_id'        => 'primary-menu-left',
+			) );
+			?>
+		</nav><!-- #site-navigation -->
+
+
 		<div class="site-branding">
 			<?php
 			the_custom_logo();
-			if ( is_front_page() && is_home() ) :
-				?>
-				<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-				<?php
-			else :
-				?>
-				<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
-				<?php
-			endif;
-			$nclfc_description = get_bloginfo( 'description', 'display' );
-			if ( $nclfc_description || is_customize_preview() ) :
-				?>
-				<p class="site-description"><?php echo $nclfc_description; /* WPCS: xss ok. */ ?></p>
-			<?php endif; ?>
+		 	?>
 		</div><!-- .site-branding -->
 
 		<nav id="site-navigation" class="main-navigation">
-			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'nclfc' ); ?></button>
+			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Menu', 'nclfc' ); ?></button>
 			<?php
 			wp_nav_menu( array(
-				'theme_location' => 'menu-1',
-				'menu_id'        => 'primary-menu',
+				'theme_location' => 'menu-right',
+				'menu_id'        => 'primary-menu-right',
 			) );
 			?>
 		</nav><!-- #site-navigation -->
