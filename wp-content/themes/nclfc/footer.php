@@ -1,34 +1,31 @@
 <?php
 /**
  * The template for displaying the footer
- *
- * Contains the closing of the #content div and all content after.
- *
- * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
- *
  * @package NCFoodCouncil
  */
 
 ?>
 
 	</div><!-- #content -->
-
-	<footer id="colophon" class="site-footer">
-		<div class="site-info">
-			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'nclfc' ) ); ?>">
-				<?php
-				/* translators: %s: CMS name, i.e. WordPress. */
-				printf( esc_html__( 'Proudly powered by %s', 'nclfc' ), 'WordPress' );
-				?>
-			</a>
-			<span class="sep"> | </span>
-				<?php
-				/* translators: 1: Theme name, 2: Theme author. */
-				printf( esc_html__( 'Theme: %1$s by %2$s.', 'nclfc' ), 'nclfc', '<a href="http://underscores.me/">BCDC Ideas / Lexi Namer</a>' );
-				?>
-		</div><!-- .site-info -->
-	</footer><!-- #colophon -->
 </div><!-- #page -->
+
+<footer class="site-footer">
+	<div class="footer footer-left">
+		<?php dynamic_sidebar('footer-left'); ?>
+	</div>
+
+	<div class="footer footer-center">
+		<?php dynamic_sidebar('footer-center'); ?>
+	</div>
+
+	<div class="footer footer-right">
+		<?php dynamic_sidebar('footer-right'); ?>
+	</div>
+</footer><!-- #colophon -->
+
+<div class="site-info">
+	Copyright 2018 <?php bloginfo('name'); ?>. All rights reserved.
+</div><!-- .site-info -->
 
 <?php wp_footer(); ?>
 

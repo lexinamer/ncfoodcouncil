@@ -9,44 +9,63 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<header class="entry-header">
-		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
-	</header><!-- .entry-header -->
+<?php if(has_post_thumbnail()) {
+$feat_image = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), "full", true);
+} ?>
 
-	<?php nclfc_post_thumbnail(); ?>
+<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+	<div class="entry-header" style="
+		background: linear-gradient(
+      rgba(0, 0, 0, 0.55),
+      rgba(0, 0, 0, 0.55)
+    ),
+		url(<?php echo (($feat_image[0]))?>)">
+	</div><!-- .entry-header -->
+
+	<div class="entry-header-text">
+		<div class="container page-info">
+			<section>
+				<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+				<p><?php echo get_field('heading_content_text') ?></p>
+			</section>
+
+			<section>
+				<img src="<?php echo get_field('heading_content_image') ?>"/>
+			</section>
+		</div>
+	</div>
+
+	<?php if( have_rows('info_box') ): ?>
+		<?php while( have_rows('info_box') ): the_row(); ?>
+			<div class="entry-info-text">
+				<div class="container page-info box">
+					<img src="<?php echo get_sub_field('image') ?>?>"/>
+
+					<div>
+						<p class="larger"><?php echo get_sub_field('title') ?></p>
+						<h2><?php echo get_sub_field('subtitle') ?></h2>
+						<p><?php echo get_sub_field('content') ?></p>
+					</div>
+
+				</div>
+			</div>
+		<?php endwhile; ?>
+	<?php endif; ?>
+
+		</div>
+	</div>
 
 	<div class="entry-content">
-		<?php
-		the_content();
-
-		wp_link_pages( array(
-			'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'nclfc' ),
-			'after'  => '</div>',
-		) );
-		?>
-	</div><!-- .entry-content -->
-
-	<?php if ( get_edit_post_link() ) : ?>
-		<footer class="entry-footer">
+		<div class="container page-content">
 			<?php
-			edit_post_link(
-				sprintf(
-					wp_kses(
-						/* translators: %s: Name of current post. Only visible to screen readers */
-						__( 'Edit <span class="screen-reader-text">%s</span>', 'nclfc' ),
-						array(
-							'span' => array(
-								'class' => array(),
-							),
-						)
-					),
-					get_the_title()
-				),
-				'<span class="edit-link">',
-				'</span>'
-			);
+			the_content();
+			wp_link_pages( array(
+				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'nclfc' ),
+				'after'  => '</div>',
+			) );
 			?>
-		</footer><!-- .entry-footer -->
-	<?php endif; ?>
+		</div>
+	</div>
+
+	</div><!-- .entry-content -->
 </article><!-- #post-<?php the_ID(); ?> -->

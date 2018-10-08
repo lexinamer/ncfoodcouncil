@@ -10,23 +10,17 @@ get_header();
 			<div class="hero-buttons">
 				<?php $button = get_field('hero_button_left');
 					if($button): ?>
-					<a href="<?php echo $button['button_link']['url']; ?>">
-						<button><?php echo $button['button_text']; ?></button>
-					</a>
+					<a class="btn-home" href="<?php echo $button['button_link']['url']; ?>"><?php echo $button['button_text']; ?></a>
 				<?php endif; ?>
 
 				<?php $button = get_field('hero_button_center');
 					if($button): ?>
-					<a href="<?php echo $button['button_link']['url']; ?>">
-						<button><?php echo $button['button_text']; ?></button>
-					</a>
+					<a class="btn-home" href="<?php echo $button['button_link']['url']; ?>"><?php echo $button['button_text']; ?></a>
 				<?php endif; ?>
 
 				<?php $button = get_field('hero_button_right');
 					if($button): ?>
-					<a href="<?php echo $button['button_link']['url']; ?>">
-						<button><?php echo $button['button_text']; ?></button>
-					</a>
+					<a class="btn-home" href="<?php echo $button['button_link']['url']; ?>"><?php echo $button['button_text']; ?></a>
 				<?php endif; ?>
 			</div>
 		</div><!-- .hero -->
@@ -34,9 +28,29 @@ get_header();
 		<div class="container">
 			<?php $callout = get_field('callout');
 					if($callout): ?>
-				<div class="callout" style="background:url('<?php echo $callout['bg']['url']?>')">
-					<h2><?php echo $callout['title']?></h1>
-					<p><?php echo $callout['content']?></p>
+				<div class="callout" style="background-image:url('<?php echo $callout['bg']['url']?>')">
+					<img src="<?php echo $callout['image_left']?>"/>
+
+					<div>
+						<h2><?php echo $callout['title']?></h2>
+						<p class="larger"><?php echo $callout['content']?></p>
+					</div>
+
+					<img src="<?php echo $callout['image_right']?>"/>
+				</div>
+			<?php endif; ?>
+
+			<?php $foodchamps = get_field('food_champs');
+					if($foodchamps): ?>
+				<div class="foodchamps">
+					<div>
+						<p class="larger"><?php echo $foodchamps['title']?></p>
+						<h2><?php echo $foodchamps['subtitle']?></h2>
+						<p><?php echo $foodchamps['content']?></p>
+						<a href="<?php echo $foodchamps['learn_more_url']['url']?>" class="btn">Learn More</a>
+					</div>
+
+					<img src="<?php echo $foodchamps['image']?>"/>
 				</div>
 			<?php endif; ?>
 		</div>

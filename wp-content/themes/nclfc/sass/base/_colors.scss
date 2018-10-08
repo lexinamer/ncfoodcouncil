@@ -2,4 +2,5 @@ $color-green: #1C6C37;
 $color-green-light: #338D51;
 $color-grey: #3F3F3F;
 $color-orange: #FFA741;
+$color-orange-light: lighten($color-orange, 10%);
 $color-yellow: #FEE8A2;

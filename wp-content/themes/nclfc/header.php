@@ -24,32 +24,41 @@
 <div id="page" class="site">
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'nclfc' ); ?></a>
 
-	<header class="site-header">
-		<nav class="main-navigation">
-			<?php
-			wp_nav_menu( array(
-				'theme_location' => 'menu-left',
-				'menu_id'        => 'primary-menu-left',
-			) );
-			?>
-		</nav><!-- #site-navigation -->
+	<header>
+		<div class="site-header">
+			<nav class="main-navigation">
+				<?php
+				wp_nav_menu( array(
+					'theme_location' => 'menu-left',
+					'menu_id'        => 'primary-menu-left',
+				) );
+				?>
+			</nav><!-- #site-navigation -->
 
 
-		<div class="site-branding">
-			<?php
-			the_custom_logo();
-		 	?>
-		</div><!-- .site-branding -->
+			<div class="site-branding">
+				<?php
+				the_custom_logo();
+			 	?>
+			</div><!-- .site-branding -->
 
-		<nav id="site-navigation" class="main-navigation">
+			<nav class="main-navigation">
+				<?php
+				wp_nav_menu( array(
+					'theme_location' => 'menu-right',
+					'menu_id'        => 'primary-menu-right',
+				) );
+				?>
+			</nav>
+		</div>
+
+		<nav id="site-navigation" class="main-navigation mobile">
 			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Menu', 'nclfc' ); ?></button>
-			<?php
-			wp_nav_menu( array(
-				'theme_location' => 'menu-right',
-				'menu_id'        => 'primary-menu-right',
-			) );
-			?>
+			<ul>
+				<?php wp_nav_menu( array('menu' => 'menu-left', 'items_wrap' => '%3$s', 'container' => false ) ); ?>
+				<?php wp_nav_menu( array('menu' => 'menu-right', 'items_wrap' => '%3$s', 'container' => false ) ); ?>
+			</ul>
 		</nav><!-- #site-navigation -->
-	</header><!-- #masthead -->
+	</header>
 
 	<div id="content" class="site-content">

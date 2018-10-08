@@ -1,0 +1,56 @@
+.btn {
+  color: white;
+  background: $color-orange;
+  padding: 1em 2em;
+  text-decoration: none;
+  display: inline-block;
+
+  &:hover {
+    background: darken($color-orange, 20%);
+  }
+}
+
+.nav-links {
+  display: flex;
+  justify-content: space-between;
+
+  .nav-previous {
+    background: $color-green-light;
+    padding: 10px 20px 10px 0;
+    cursor: pointer;
+
+    a {
+      padding-left: 10px;
+      color: white;
+      text-decoration: none;
+    }
+
+    &::before {
+      content: "\2190";
+      color: white;
+      background: $color-green;
+      padding: 8px;
+      pointer-events: auto;
+    }
+  }
+
+  .nav-next {
+    background: $color-green-light;
+    padding: 10px 0 10px 20px;
+    cursor: pointer;
+
+    a {
+      padding-right: 10px;
+      color: white;
+      text-decoration: none;
+    }
+
+    &::after {
+      content: "\2192";
+      color: white;
+      background: $color-green;
+      padding: 8px;
+      pointer-events: auto;
+    }
+  }
+}

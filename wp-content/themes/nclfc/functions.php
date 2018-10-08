@@ -82,12 +82,41 @@ add_action( 'after_setup_theme', 'nclfc_content_width', 0 );
 /**
  * Register widget area.
  *
- * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
  */
 function nclfc_widgets_init() {
 	register_sidebar( array(
 		'name'          => esc_html__( 'Sidebar', 'nclfc' ),
 		'id'            => 'sidebar-1',
+		'description'   => esc_html__( 'Add widgets here.', 'nclfc' ),
+		'before_widget' => '<section id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<h2 class="widget-title">',
+		'after_title'   => '</h2>',
+	) );
+
+	register_sidebar( array(
+		'name'          => esc_html__( 'Footer Left', 'nclfc' ),
+		'id'            => 'footer-left',
+		'description'   => esc_html__( 'Add widgets here.', 'nclfc' ),
+		'before_widget' => '<section id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<h2 class="widget-title">',
+		'after_title'   => '</h2>',
+	) );
+
+	register_sidebar( array(
+		'name'          => esc_html__( 'Footer Center', 'nclfc' ),
+		'id'            => 'footer-center',
+		'description'   => esc_html__( 'Add widgets here.', 'nclfc' ),
+		'before_widget' => '<section id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<h2 class="widget-title">',
+		'after_title'   => '</h2>',
+	) );
+
+	register_sidebar( array(
+		'name'          => esc_html__( 'Footer Right', 'nclfc' ),
+		'id'            => 'footer-right',
 		'description'   => esc_html__( 'Add widgets here.', 'nclfc' ),
 		'before_widget' => '<section id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</section>',
@@ -107,6 +136,10 @@ function nclfc_scripts() {
 
 	wp_enqueue_script( 'nclfc-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
 
+	// jQuery
+	wp_deregister_script( 'jquery' );
+	$jquery_cdn = 'https://code.jquery.com/jquery-3.3.1.js';
+	wp_enqueue_script( 'jquery', $jquery_cdn, array(), '3.3.1', true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
@@ -149,3 +182,29 @@ require get_template_directory() . '/inc/customizer.php';
 if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
+
+
+function food_champion() {
+	$labels = array(
+		'name' => _x("Food Champion", "post type general name"),
+		'singular_name' => _x("Champion", "post type singular name"),
+		'menu_name' => 'Food Champions',
+		'add_new' => _x("Add New", "item"),
+		'add_new_item' => __("Add New Profile"),
+		'edit_item' => __("Edit Profile"),
+		'new_item' => __("New Profile"),
+		'view_item' => __("View Profile"),
+		'parent_item_colon' => ''
+	);
+
+	register_post_type('food_champion' , array(
+		'labels' => $labels,
+		'public' => true,
+		'has_archive' => true,
+		'menu_icon' => 'dashicons-admin-users',
+		'rewrite' => array('slug' => 'foodchampions'),
+		'supports' => array('title', 'editor', 'thumbnail', 'excerpt')
+	) );
+}
+
+add_action( 'init', __NAMESPACE__.'\\food_champion' );

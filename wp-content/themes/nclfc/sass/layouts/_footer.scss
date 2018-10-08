@@ -1,0 +1,41 @@
+.site-footer {
+  background: $color-green;
+  color: white;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 1em;
+  padding: 1em 10%;
+
+  .footer-left {
+    flex-grow: 3;
+  }
+
+  .footer-center {
+    #menu-footer-menu {
+      list-style-type: none;
+      margin: 0;
+      font-size: 23px;
+      margin-right: 1.5em;
+
+      a {
+        color: white;
+        text-decoration: none;
+      }
+    }
+  }
+
+  .footer-right {
+    .textwidget p {
+      font-size: 14px;
+      line-height: 1.8em;
+      margin-bottom: 0;
+    }
+  }
+}
+
+.site-info {
+  background: $color-green-light;
+  color: white;
+  text-align: center;
+  padding: 10px;
+}

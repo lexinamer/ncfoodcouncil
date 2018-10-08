@@ -1,15 +1,19 @@
-.site-header {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
+header {
   background: $color-green;
   height: 75px;
-}
 
-.custom-logo {
-  width: 140px;
-  height: 140px;
-  position: relative;
-  top: 45px;
-  z-index: 10;
+  .site-header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 75px;
+  }
+
+  .custom-logo {
+    width: 140px;
+    height: 140px;
+    position: relative;
+    top: 45px;
+    z-index: 10;
+  }
 }

@@ -1,0 +1,45 @@
+.posts-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+
+  .post {
+    margin: 1em;
+  }
+}
+
+.post {
+  display: flex;
+  height: 300px;
+
+  .post-thumbnail {
+    flex-grow: 1;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &:first-child {
+    width: 100%;
+
+    .post-excerpt {
+      background: $color-orange;
+    }
+  }
+
+  &:not(:first-child) {
+    flex: 1;
+
+    .post-excerpt {
+      background: $color-green;
+    }
+  }
+}
+
+.content {
+  background: #F6EDCA;
+  padding: 1em;
+}
