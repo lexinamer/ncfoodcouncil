@@ -14,12 +14,7 @@ $feat_image = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), "ful
 } ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<div class="entry-header" style="
-		background: linear-gradient(
-      rgba(0, 0, 0, 0.55),
-      rgba(0, 0, 0, 0.55)
-    ),
-		url(<?php echo (($feat_image[0]))?>)">
+	<div class="entry-header" style="background-image: url(<?php echo (($feat_image[0]))?>)">
 	</div><!-- .entry-header -->
 
 	<div class="entry-header-text">
