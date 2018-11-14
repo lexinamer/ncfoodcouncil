@@ -1,0 +1,29 @@
+.entry-header-archive {
+  color: white;
+  background-size: cover !important;
+  background-position: center !important;
+  height: 400px;
+
+  .page-content {
+    height: inherit;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    h1 {
+      margin: 0;
+    }
+  }
+}
+
+.post-excerpt {
+  color: white;
+  padding: 20px;
+
+  a {
+    color: white;
+    text-decoration: none;
+  }
+}

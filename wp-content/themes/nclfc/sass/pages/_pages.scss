@@ -15,7 +15,6 @@
 
   .page-info {
     display: flex;
-    flex-wrap: wrap;
     padding: 0;
 
     section {
@@ -61,5 +60,11 @@
       margin-right: 2em;
       max-height: 250px;
     }
+  }
+}
+
+.entry-content {
+  p {
+    padding: 10px 1em;
   }
 }

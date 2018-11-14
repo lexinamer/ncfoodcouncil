@@ -10,16 +10,18 @@
 </div><!-- #page -->
 
 <footer class="site-footer">
-	<div class="footer footer-left">
-		<?php dynamic_sidebar('footer-left'); ?>
-	</div>
+	<div class="container">
+		<div class="footer footer-left">
+			<?php dynamic_sidebar('footer-left'); ?>
+		</div>
 
-	<div class="footer footer-center">
-		<?php dynamic_sidebar('footer-center'); ?>
-	</div>
+		<div class="footer footer-center">
+			<?php dynamic_sidebar('footer-center'); ?>
+		</div>
 
-	<div class="footer footer-right">
-		<?php dynamic_sidebar('footer-right'); ?>
+		<div class="footer footer-right">
+			<?php dynamic_sidebar('footer-right'); ?>
+		</div>
 	</div>
 </footer><!-- #colophon -->
 

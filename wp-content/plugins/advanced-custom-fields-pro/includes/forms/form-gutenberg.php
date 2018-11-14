@@ -19,7 +19,7 @@ class ACF_Form_Gutenberg {
 	*/
 		
 	function __construct() {
-		
+		return;
 		// filters
 		add_filter( 'replace_editor', array($this, 'replace_editor'), 99, 2 );
 	}

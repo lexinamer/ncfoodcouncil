@@ -13,7 +13,7 @@
   height: 300px;
 
   .post-thumbnail {
-    flex-grow: 1;
+    width: 100%;
 
     img {
       width: 100%;
@@ -31,7 +31,7 @@
   }
 
   &:not(:first-child) {
-    flex: 1;
+    width: 47%;
 
     .post-excerpt {
       background: $color-green;
@@ -42,4 +42,19 @@
 .content {
   background: #F6EDCA;
   padding: 1em;
+}
+
+#breadcrumbs {
+  font-size: 14px;
+  font-weight: 300;
+
+  a {
+    text-transform: lowercase;
+    color: white;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
 }

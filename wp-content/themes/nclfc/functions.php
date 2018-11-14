@@ -184,6 +184,9 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 }
 
 
+/**
+ * Custom Food Champion Post Type
+ */
 function food_champion() {
 	$labels = array(
 		'name' => _x("Food Champion", "post type general name"),
@@ -200,11 +203,80 @@ function food_champion() {
 	register_post_type('food_champion' , array(
 		'labels' => $labels,
 		'public' => true,
-		'has_archive' => true,
+		'has_archive' => false,
 		'menu_icon' => 'dashicons-admin-users',
-		'rewrite' => array('slug' => 'foodchampions'),
+		'rewrite' => array('slug' => 'food-champions'),
 		'supports' => array('title', 'editor', 'thumbnail', 'excerpt')
 	) );
 }
 
 add_action( 'init', __NAMESPACE__.'\\food_champion' );
+
+
+/**
+ * Gutenberg ACF Field
+ */
+
+function custom_acf_init() {
+	if( function_exists('acf_register_block') ) {
+		acf_register_block(array(
+			'name'				=> 'callout',
+			'title'				=> __('Callout'),
+			'description'		=> __('A yellow callout block.'),
+			'render_callback'	=> 'custom_acf_block_render_callback',
+			'category'			=> 'formatting',
+			'icon'				=> 'admin-comments',
+			'keywords'			=> array( 'callout', 'yellow' ),
+		));
+
+		acf_register_block(array(
+			'name'				=> 'titlebox',
+			'title'				=> __('Titlebox'),
+			'description'		=> __('Description and Image for Title Box'),
+			'render_callback'	=> 'custom_acf_block_render_callback',
+			'category'			=> 'formatting',
+			'icon'				=> 'format-aside',
+			'keywords'			=> array( 'titlebox', 'image' ),
+		));
+
+		acf_register_block(array(
+			'name'				=> 'homepagecta',
+			'title'				=> __('Homepage CTA'),
+			'description'		=> __('Homepage button over header image'),
+			'render_callback'	=> 'custom_acf_block_render_callback',
+			'category'			=> 'formatting',
+			'icon'				=> 'align-none',
+			'keywords'			=> array( 'homepage', 'button' ),
+		));
+
+		acf_register_block(array(
+			'name'				=> 'imagecallout',
+			'title'				=> __('Image Callout'),
+			'description'		=> __('Callout over image overlay'),
+			'render_callback'	=> 'custom_acf_block_render_callback',
+			'category'			=> 'formatting',
+			'icon'				=> 'admin-comments',
+			'keywords'			=> array( 'image', 'callout' ),
+		));
+
+		acf_register_block(array(
+			'name'				=> 'leftcta',
+			'title'				=> __('Left Aligned CTA'),
+			'description'		=> __('Left aligned CTA with imaage'),
+			'render_callback'	=> 'custom_acf_block_render_callback',
+			'category'			=> 'formatting',
+			'icon'				=> 'admin-comments',
+			'keywords'			=> array( 'image', 'cta' ),
+		));
+	}
+}
+
+add_action('acf/init', 'custom_acf_init');
+
+function custom_acf_block_render_callback( $block ) {
+		$slug = str_replace('acf/', '', $block['name']);
+
+	if( file_exists(STYLESHEETPATH . "/template-parts/blocks/content-{$slug}.php") ) {
+		include( STYLESHEETPATH . "/template-parts/blocks/content-{$slug}.php" );
+	}
+}
