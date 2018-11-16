@@ -27,3 +27,13 @@ p {
     font-size: 25px;
   }
 }
+
+a {
+  color: $color-green-light;
+  transition: all .3s;
+
+  &:hover {
+    background: $color-green-light;
+    color: white;
+  }
+}

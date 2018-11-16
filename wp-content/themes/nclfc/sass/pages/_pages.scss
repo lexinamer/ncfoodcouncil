@@ -1,68 +1,46 @@
+// Internal Pages Container
 .site-main {
   max-width: 1200px;
   margin: 3em auto;
 }
 
-.entry-header {
-  height: 300px;
-  background-position: center !important;
-  background-size: cover !important;
-}
-
-.entry-header-text {
-  background: $color-orange;
-  color: white;
-
-  .page-info {
-    display: flex;
-    padding: 0;
-
-    section {
-      flex: 1;
-      margin: 2em;
-
-      &:nth-of-type(1) {
-        flex-basis: 60%;
-      }
-
-      &:nth-of-type(2) {
-        flex-grow: 2;
-
-        img {
-          max-height: 250px;
-          margin: 0 auto;
-          display: block;
-        }
-      }
-    }
-  }
-}
-
-.entry-info-text {
+// Yellow info box
+.entry-infobox {
   margin-top: 2em;
   background: $color-yellow;
+  padding: 1em;
+  display: flex;
 
-  .box {
-    padding: 2em;
-    display: flex;
-    align-items: center;
+  @media #{$small-and-down} {
+    display: block;
+  }
 
-    div, img {
-      width: 60%;
-    }
+  .infobox-image {
+    padding: 1em;
+    flex: 1 1 0;
 
-    .larger, h2 {
-      margin: 0;
+    @media #{$small-and-down} {
+      height: 200px;
+      padding: 0;
     }
 
     img {
-      object-fit: contain;
-      margin-right: 2em;
-      max-height: 250px;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .infobox-text {
+    padding: 1em;
+    flex: 1 1 0;
+
+    @media #{$small-and-down} {
+      padding: 0;
     }
   }
 }
 
+// Main content
 .entry-content {
   p {
     padding: 10px 1em;

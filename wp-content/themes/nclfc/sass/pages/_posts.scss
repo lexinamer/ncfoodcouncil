@@ -1,3 +1,4 @@
+// Posts Container
 .posts-container {
   display: flex;
   justify-content: space-between;
@@ -8,6 +9,7 @@
   }
 }
 
+// Post Styling
 .post {
   display: flex;
   height: 300px;
@@ -39,22 +41,8 @@
   }
 }
 
+// Post Content
 .content {
   background: #F6EDCA;
   padding: 1em;
-}
-
-#breadcrumbs {
-  font-size: 14px;
-  font-weight: 300;
-
-  a {
-    text-transform: lowercase;
-    color: white;
-    text-decoration: none;
-
-    &:hover {
-      text-decoration: underline;
-    }
-  }
 }

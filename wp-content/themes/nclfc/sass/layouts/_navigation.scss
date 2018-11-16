@@ -61,6 +61,7 @@
 .mobile {
   position: relative;
 
+  // Mobile toggle button
   .menu-toggle {
     display: none;
     position: relative;
@@ -70,26 +71,42 @@
     z-index: 30;
   }
 
-  ul {
+  // Main nav styling
+  .nav-menu {
     display: none;
+    background: $color-green;
+    height: 80vh;
     position: absolute;
-    left: 0;
     width: 100%;
-    z-index: 10;
-    height: 100vh;
-    background: $color-green-light;
-    top: -75px;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    padding: 0;
+    z-index: 20;
+    text-align: center;
+    padding-top: 80px;
+    top: -85px;
 
     li {
-      padding: 1.5em;
+      padding: 1.3em 0;
+
+      a {
+        color: white;
+        text-decoration: none;
+        text-transform: lowercase;
+      }
     }
+  }
+
+
+  // Dropdown sub menus
+  .sub-menu {
+    width: 100%;
+    display: none;
+    background: darken($color-green, 10%);
+    margin-top: 1em;
   }
 }
 
-@media (max-width: 767px) {
+// Media Queries for Nav
+@media #{$medium-and-down} {
   .main-navigation {
     .menu {
       display: none;
@@ -100,11 +117,7 @@
     }
   }
 
-  .toggled ul {
-    display: flex;
-
-    li {
-      display: block;
-    }
+  .toggled .nav-menu {
+    display: block;
   }
 }

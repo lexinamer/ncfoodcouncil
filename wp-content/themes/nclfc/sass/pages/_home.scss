@@ -1,4 +1,5 @@
 .home {
+  // Top Hero
   .hero {
     height: 400px;
     position: relative;
@@ -34,6 +35,7 @@
     }
   }
 
+  // Callout Section
   .callout {
     background-size: cover;
     padding: 5em 3em;
@@ -41,20 +43,40 @@
     text-align: center;
     color: white;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
 
     img {
       object-fit: contain;
+
+      @media #{$small-and-down} {
+        display: none;
+      }
     }
   }
 
+  // Foodchamps Infobox
   .foodchamps {
     margin-top: 2em;
     display: flex;
     align-items: center;
 
+    @media #{$small-and-down} {
+      display: block;
+      margin: 1em;
+    }
+
     div, img {
       width: 50%;
+
+      @media #{$small-and-down} {
+        width: 100%;
+      }
+    }
+
+    img {
+      object-fit: cover;
+      margin: 1em 0;
+      height: 350px;
     }
 
     .larger, h2 {
@@ -65,30 +87,6 @@
       object-fit: cover;
       margin-left: 2em;
       height: 350px;
-    }
-  }
-
-  @media screen and (max-width: 767px) {
-    .callout {
-      img {
-        display: none;
-      }
-    }
-
-    .foodchamps {
-      display: block;
-      margin: 1em;
-
-      div{
-        width: 100%;
-      }
-
-      img {
-        object-fit: cover;
-        margin: 1em 0;
-        height: 350px;
-        width: 100%;
-      }
     }
   }
 }

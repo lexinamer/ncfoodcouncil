@@ -1,3 +1,4 @@
+// Main Site Header
 header {
   background: $color-green;
   height: 75px;
@@ -16,4 +17,56 @@ header {
     top: 45px;
     z-index: 10;
   }
+}
+
+// Header for landing pages
+.entry-header {
+  .titlebox {
+    background: $color-orange;
+    color: white;
+    display: flex;
+
+    .titlebox-text {
+      padding: 3em 2em 3em 3em;
+      flex: 1 1 0;
+
+      @media #{$medium-and-down} {
+        padding: 1em;
+      }
+    }
+
+    .titlebox-image {
+      flex: 1 1 0;
+      padding: 1em 3em 1em;
+
+      @media #{$medium-and-down} {
+        padding: 1em;
+      }
+
+      @media #{$small-and-down} {
+        display: none;
+      }
+
+      img {
+        height: 100%;
+        object-fit: contain;
+      }
+    }
+  }
+}
+
+// Header for Default Page template
+.page-template-default {
+  .entry-header {
+    .titlebox {
+      padding: 0 3em;
+    }
+  }
+}
+
+// Featured image
+.featured-image {
+  height: 300px;
+  background-position: center !important;
+  background-size: cover !important;
 }
