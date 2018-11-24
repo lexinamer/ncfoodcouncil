@@ -14,7 +14,7 @@
       list-style-type: none;
       transition: background-color .3s;
       padding: 0;
-      line-height: 75px;
+      line-height: 50px;
       overflow: hidden;
 
       a {
@@ -23,7 +23,12 @@
         padding: 0 20px;
         color: #fff;
         text-decoration: none;
-        text-transform: lowercase;
+        text-transform: uppercase;
+
+        @media #{$large-and-down} {
+          font-size: 14px;
+          padding: 0 10px;
+        }
       }
 
       &:hover {
@@ -47,6 +52,7 @@
     li {
       a {
         width: 100%;
+        text-transform: none;
       }
     }
   }
@@ -90,7 +96,7 @@
       a {
         color: white;
         text-decoration: none;
-        text-transform: lowercase;
+        text-transform: uppercase;
       }
     }
   }

@@ -3,6 +3,7 @@
   .hero {
     height: 400px;
     position: relative;
+    background-size: cover;
 
     &-buttons {
       position: absolute;
@@ -38,7 +39,7 @@
   // Callout Section
   .callout {
     background-size: cover;
-    padding: 5em 3em;
+    padding: 2em 3em;
     margin-top: 2em;
     text-align: center;
     color: white;
@@ -47,8 +48,9 @@
 
     img {
       object-fit: contain;
+      margin: 0 3em;
 
-      @media #{$small-and-down} {
+      @media #{$medium-and-down} {
         display: none;
       }
     }
@@ -87,6 +89,10 @@
       object-fit: cover;
       margin-left: 2em;
       height: 350px;
+
+      @media #{$medium-and-down} {
+        margin: 10px 0;
+      }
     }
   }
 }

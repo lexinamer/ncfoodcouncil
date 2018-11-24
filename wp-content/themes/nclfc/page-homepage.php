@@ -28,14 +28,19 @@ get_header();
 			<?php $callout = get_field('callout');
 					if($callout): ?>
 				<div class="callout" style="background-image:url('<?php echo $callout['bg']['url']?>')">
-					<img src="<?php echo $callout['image_left']?>"/>
+
+					<?php if($callout['image_left']): ?>
+						<img src="<?php echo $callout['image_left']?>"/>
+					<?php endif ?>
 
 					<div>
 						<h2><?php echo $callout['title']?></h2>
 						<p class="larger"><?php echo $callout['content']?></p>
 					</div>
 
-					<img src="<?php echo $callout['image_right']?>"/>
+					<?php if($callout['image_right']): ?>
+						<img src="<?php echo $callout['image_right']?>"/>
+					<?php endif ?>
 				</div>
 			<?php endif; ?>
 
@@ -46,7 +51,7 @@ get_header();
 						<p class="larger"><?php echo $foodchamps['title']?></p>
 						<h2><?php echo $foodchamps['subtitle']?></h2>
 						<p><?php echo $foodchamps['content']?></p>
-						<a href="<?php echo $foodchamps['learn_more_url']['url']?>" class="btn">Learn More</a>
+						<a href="<?php echo $foodchamps['learn_more_url']?>" class="btn">Learn More</a>
 					</div>
 
 					<img src="<?php echo $foodchamps['image']?>"/>
