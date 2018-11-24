@@ -1,15 +1,16 @@
 // Breadcrumbs
 #breadcrumbs {
-  font-size: 14px;
+  text-align: center;
+  font-size: 16px;
   font-weight: 300;
 
   a {
-    text-transform: lowercase;
-    color: white;
     text-decoration: none;
+  }
 
-    &:hover {
-      text-decoration: underline;
-    }
+  .breadcrumb_last {
+    background: $color-green-light;
+    color: white;
+    padding: 5px;
   }
 }

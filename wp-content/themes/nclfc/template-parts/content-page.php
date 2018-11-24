@@ -14,16 +14,28 @@ $feat_image = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), "ful
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-	<div class="entry-header">
-
-		<!-- Featured image header -->
-		<div class="featured-image" style="background-image: url(<?php echo (($feat_image[0]))?>)">
-		</div>
-		
-	</div>
-
 	<div class="entry-content">
 		<div class="container page-content">
+			<?php if( get_field('icon_list_toggle') ): ?>
+					<?php if( get_field('intro_text') ): ?>
+							<?php the_field('intro_text'); ?>
+					<?php endif ?>
+
+					<?php if( have_rows('icon_list') ): ?>
+							<?php while ( have_rows('icon_list') ) : the_row(); ?>
+								<div class="icon-list-row">
+									<div class="icon-img">
+										<img src="<?php the_sub_field('icon_list_image')?>"/>
+									</div>
+
+									<div class="icon-cnt">
+										<?php the_sub_field('icon_list_info')?>
+									</div>
+								</div>
+							<?php endwhile ?>
+					<?php endif ?>
+			<?php endif ?>
+
 			<?php
 			the_content();
 			wp_link_pages( array(

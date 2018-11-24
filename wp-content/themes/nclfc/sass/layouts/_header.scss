@@ -19,54 +19,23 @@ header {
   }
 }
 
-// Header for landing pages
+// Page header
 .entry-header {
-  .titlebox {
-    background: $color-orange;
-    color: white;
-    display: flex;
-
-    .titlebox-text {
-      padding: 3em 2em 3em 3em;
-      flex: 1 1 0;
-
-      @media #{$medium-and-down} {
-        padding: 1em;
-      }
-    }
-
-    .titlebox-image {
-      flex: 1 1 0;
-      padding: 1em 3em 1em;
-
-      @media #{$medium-and-down} {
-        padding: 1em;
-      }
-
-      @media #{$small-and-down} {
-        display: none;
-      }
-
-      img {
-        height: 100%;
-        object-fit: contain;
-      }
-    }
-  }
-}
-
-// Header for Default Page template
-.page-template-default {
-  .entry-header {
-    .titlebox {
-      padding: 0 3em;
-    }
-  }
-}
-
-// Featured image
-.featured-image {
-  height: 300px;
-  background-position: center !important;
+  color: white;
   background-size: cover !important;
+  background-position: center !important;
+  height: 400px;
+
+  .entry-header-content {
+    height: inherit;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    h1 {
+      margin: 0;
+    }
+  }
 }

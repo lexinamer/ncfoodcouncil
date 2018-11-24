@@ -16,7 +16,32 @@ get_header();
 ?>
 
 	<div id="primary" class="content-area">
-		<main id="main" class="site-main">
+		<main id="main">
+
+			<?php if(has_post_thumbnail()) {
+			$feat_image = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), "full", true);
+			} ?>
+
+			<div class="entry-header" style="background: linear-gradient(
+			rgba(0, 0, 0, 0.45),
+			rgba(0, 0, 0, 0.45)
+			), url(<?php echo (($feat_image[0]))?>)">
+
+						<!-- Entry Content goes here -->
+						<div class="entry-header-content">
+							<h1><?php the_title(); ?></h1>
+							<div>
+								<?php get_the_subtitle( $post ); ?>
+							</div>
+						</div>
+
+			</div><!-- .page-header -->
+		</main>
+		<?php
+			if ( function_exists('yoast_breadcrumb') ) {
+				yoast_breadcrumb( '<p id="breadcrumbs">','</p>' );
+			}
+		?>
 
 		<?php
 		while ( have_posts() ) :

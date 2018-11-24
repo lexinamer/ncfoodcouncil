@@ -4,45 +4,36 @@
   margin: 3em auto;
 }
 
-// Yellow info box
-.entry-infobox {
-  margin-top: 2em;
-  background: $color-yellow;
-  padding: 1em;
+// Icon list on main pages
+.icon-list-row {
+  margin: 2em 0;
   display: flex;
+  align-items: center;
 
-  @media #{$small-and-down} {
-    display: block;
-  }
-
-  .infobox-image {
-    padding: 1em;
+  .icon-img {
     flex: 1 1 0;
-
-    @media #{$small-and-down} {
-      height: 200px;
-      padding: 0;
-    }
 
     img {
-      height: 100%;
-      object-fit: cover;
+      width: 100%;
     }
   }
 
-  .infobox-text {
-    padding: 1em;
-    flex: 1 1 0;
-
-    @media #{$small-and-down} {
-      padding: 0;
-    }
+  .icon-cnt {
+    flex: 2 1 0;
   }
 }
 
 // Main content
 .entry-content {
   p {
-    padding: 10px 1em;
+    padding: 0 1em;
   }
 }
+
+// Wrap images in WYSIWIG
+img.alignright { float: right; margin: 0 0 1em 1em; }
+img.alignleft { float: left; margin: 0 1em 1em 0; }
+img.aligncenter { display: block; margin-left: auto; margin-right: auto; }
+.alignright { float: right; }
+.alignleft { float: left; }
+.aligncenter { display: block; margin-left: auto; margin-right: auto; }
