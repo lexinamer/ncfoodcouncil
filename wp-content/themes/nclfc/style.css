@@ -287,6 +287,10 @@ template {
   max-width: 1200px;
   margin: 0 auto;
 }
+.entry-content img {
+  max-width: 100%;
+  height: auto;
+}
 body {
   font-family: 'Nunito Sans', sans-serif;
 }
@@ -318,7 +322,7 @@ a {
 a:hover {
   background: #338d51;
   color: white;
-  padding: 5px;
+  text-decoration: none;
 }
 /* Text meant only for screen readers. */
 .screen-reader-text {
@@ -407,23 +411,36 @@ a:hover {
   pointer-events: auto;
 }
 .main-navigation {
+  clear: both;
+  display: block;
   width: 100%;
 }
-.main-navigation .menu {
+.main-navigation ul {
   display: flex;
+  list-style: none;
   justify-content: space-around;
-  padding: 0;
   margin: 0;
+  padding: 0;
 }
-.main-navigation .menu li {
+.main-navigation ul .menu-item-has-children > a {
+  cursor: default;
+}
+.main-navigation ul li {
+  float: left;
   position: relative;
-  list-style-type: none;
   transition: background-color 0.3s;
   padding: 0;
   line-height: 50px;
-  overflow: hidden;
 }
-.main-navigation .menu li a {
+.main-navigation ul li:hover > a, .main-navigation ul li.focus > a {
+  background: #338d51;
+}
+.main-navigation ul li:hover > ul, .main-navigation ul li.focus > ul {
+  left: auto;
+}
+.main-navigation ul li a {
+  display: block;
+  text-decoration: none;
   line-height: inherit;
   display: inline-block;
   padding: 0 20px;
@@ -432,75 +449,70 @@ a:hover {
   text-transform: uppercase;
 }
 @media only screen and (max-width : 1150px) {
-  .main-navigation .menu li a {
+  .main-navigation ul li a {
     font-size: 14px;
     padding: 0 10px;
   }
 }
-.main-navigation .menu li:hover > a {
-  background: #338d51;
-}
-.main-navigation .sub-menu {
-  height: auto;
+.main-navigation ul ul {
+  background: #124422;
+  float: left;
   position: absolute;
-  background: #1c6c37;
-  padding: 0;
-  min-width: 350px;
-  left: 0;
-  z-index: 20;
+  top: 100%;
+  left: -999em;
+  z-index: 99999;
+  flex-direction: column;
 }
-.main-navigation .sub-menu li a {
-  width: 100%;
+.main-navigation ul ul li a {
   text-transform: none;
-}
-.main-navigation .menu-item-has-children:hover {
-  overflow: visible;
+  min-width: 350px;
 }
 .mobile {
-  position: relative;
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 .mobile .menu-toggle {
   display: none;
-  position: relative;
-  bottom: 50px;
-  right: 2em;
-  float: right;
-  z-index: 30;
-}
-.mobile .nav-menu {
-  display: none;
-  background: #1c6c37;
-  height: 80vh;
   position: absolute;
-  width: 100%;
-  padding: 0;
-  z-index: 20;
-  text-align: center;
-  padding-top: 80px;
-  top: -85px;
-}
-.mobile .nav-menu li {
-  padding: 1.3em 0;
-}
-.mobile .nav-menu li a {
-  color: white;
-  text-decoration: none;
+  top: 2em;
+  right: 2em;
+  z-index: 30;
   text-transform: uppercase;
 }
-.mobile .sub-menu {
+.mobile ul {
+  background: #1c6c37;
+  padding-top: 55px;
+  position: relative;
+  z-index: 20;
+  text-align: center;
+}
+.mobile ul li {
+  float: none;
+}
+.mobile ul li a {
   width: 100%;
-  display: none;
-  background: #124422;
-  margin-top: 1em;
+  padding: 0;
+}
+.mobile ul li ul {
+  padding-top: 0;
+  width: 100%;
+}
+.mobile.toggled ul {
+  display: block;
 }
 @media only screen and (max-width : 950px) {
-  .main-navigation .menu {
+  .main-navigation ul {
     display: none;
   }
   .main-navigation .menu-toggle {
     display: block;
   }
   .toggled .nav-menu {
+    display: block;
+  }
+  .mobile {
     display: block;
   }
 }
@@ -527,7 +539,11 @@ header .site-header {
   align-items: center;
   height: 75px;
 }
-header .custom-logo {
+header .custom-logo-link:hover {
+  padding: 0;
+  background: transparent;
+}
+header .custom-logo-link .custom-logo {
   width: 140px;
   height: 140px;
   position: relative;
@@ -541,12 +557,14 @@ header .custom-logo {
   height: 400px;
 }
 .entry-header .entry-header-content {
+  width: 90%;
   height: inherit;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
+  margin: 0 auto;
 }
 .entry-header .entry-header-content h1 {
   margin: 0;
@@ -728,32 +746,22 @@ header .custom-logo {
 .icon-list-row .icon-cnt {
   flex: 2 1 0;
 }
-.entry-content p {
-  padding: 0 1em;
-}
-img.alignright {
-  float: right;
-  margin: 0 0 1em 1em;
-}
-img.alignleft {
-  float: left;
-  margin: 0 1em 1em 0;
-}
-img.aligncenter {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
+@media only screen and (max-width : 769px) {
+  .entry-content {
+    padding: 0 1em;
+  }
 }
 .alignright {
+  margin-left: 1em;
   float: right;
 }
 .alignleft {
+  margin-right: 1em;
   float: left;
 }
 .aligncenter {
   display: block;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0 auto;
 }
 .post-excerpt {
   color: white;

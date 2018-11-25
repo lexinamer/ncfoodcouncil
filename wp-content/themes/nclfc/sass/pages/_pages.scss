@@ -26,15 +26,23 @@
 
 // Main content
 .entry-content {
-  p {
+  @media #{$small-and-down} {
     padding: 0 1em;
   }
 }
 
 // Wrap images in WYSIWIG
-img.alignright { float: right; margin: 0 0 1em 1em; }
-img.alignleft { float: left; margin: 0 1em 1em 0; }
-img.aligncenter { display: block; margin-left: auto; margin-right: auto; }
-.alignright { float: right; }
-.alignleft { float: left; }
-.aligncenter { display: block; margin-left: auto; margin-right: auto; }
+.alignright {
+  margin-left: 1em;
+  float: right;
+}
+
+.alignleft {
+  margin-right: 1em;
+  float: left;
+}
+
+.aligncenter {
+  display: block;
+  margin: 0 auto;
+}
