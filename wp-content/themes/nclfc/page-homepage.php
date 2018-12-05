@@ -36,6 +36,10 @@ get_header();
 					<div>
 						<h2><?php echo $callout['title']?></h2>
 						<p class="larger"><?php echo $callout['content']?></p>
+
+						<?php if($callout['button_label']): ?>
+							<a class="btn" href="<?php echo $callout['button_link']['url']; ?>"><?php echo $callout['button_label']; ?></a>
+						<?php endif ?>
 					</div>
 
 					<?php if($callout['image_right']): ?>

@@ -49,7 +49,7 @@
        ?>
 
           <!-- Post Content goes here -->
-          <?php get_template_part( 'template-parts/content', 'foodchamps' );?>
+          <?php get_template_part( 'template-parts/content', 'foodchamp' );?>
 
 
         <?php endwhile; wp_reset_postdata(); ?>
