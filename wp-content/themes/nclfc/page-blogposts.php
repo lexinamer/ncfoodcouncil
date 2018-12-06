@@ -1,6 +1,7 @@
 <?php
+
 /**
- * Template Name: Food Champions
+ * Template Name: Blog Page
  */
 
  get_header();
@@ -36,11 +37,14 @@
       ?>
 
  		<main class="site-main container">
+      <?php the_content(); ?>
+
+
  			<div class="posts-container">
         <?php
             // Custom Post Query
            $args = array (
-               'post_type'=> 'food_champion',
+               'post_type'=> 'post',
            );
 
            $the_query = new WP_Query($args);
@@ -49,7 +53,7 @@
        ?>
 
           <!-- Post Content goes here -->
-          <?php get_template_part( 'template-parts/content', 'foodchamp' );?>
+          <?php get_template_part( 'template-parts/content', get_post_type() ); ?>
 
 
         <?php endwhile; wp_reset_postdata(); ?>

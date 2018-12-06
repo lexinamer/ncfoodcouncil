@@ -11,20 +11,30 @@ get_header();
 ?>
 
 	<div id="primary" class="content-area">
-		<main id="main" class="site-main">
-
+		<main id="main" class="site-main container">
 		<?php
 		while ( have_posts() ) :
-			the_post();
+			the_post(); ?>
 
-			get_template_part( 'template-parts/content', get_post_type() );
+			<article id="post-<?php the_ID(); ?>" class="post">
+				<?php nclfc_post_thumbnail(); ?>
 
-			the_post_navigation();
+				<div class="post-excerpt">
+					<?php
+					the_title( '<h2 class="entry-title">', '</h2>' );
 
-			// If comments are open or we have at least one comment, load up the comment template.
-			if ( comments_open() || get_comments_number() ) :
-				comments_template();
-			endif;
+					echo get_the_date();
+					?>
+				</div><!-- .entry-content -->
+			</article><!-- #post-<?php the_ID(); ?> -->
+
+
+			<div class="content">
+				<?	the_content(); ?>
+			</div>
+
+			<?php	the_post_navigation('','Previous Story','Next Story');
+
 
 		endwhile; // End of the loop.
 		?>
@@ -33,5 +43,4 @@ get_header();
 	</div><!-- #primary -->
 
 <?php
-get_sidebar();
 get_footer();

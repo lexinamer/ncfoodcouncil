@@ -21,11 +21,8 @@ get_header();
 
 				<div class="post-excerpt">
 					<?php
-					if ( function_exists('yoast_breadcrumb') ) {
-						yoast_breadcrumb( '<p id="breadcrumbs">','</p>' );
-					}
 
-					the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
+					the_title( '<h2 class="entry-title">', '</h2>' );
 
 					the_excerpt();
 					?>
