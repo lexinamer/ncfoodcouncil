@@ -53,7 +53,7 @@
 		</div>
 
 		<nav id="site-navigation" class="main-navigation mobile">
-			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Menu', 'nclfc' ); ?></button>
+			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false">Menu &#9776;</button>
 			<ul>
 				<?php wp_nav_menu( array('menu' => 'menu-left', 'items_wrap' => '%3$s', 'container' => false ) ); ?>
 				<?php wp_nav_menu( array('menu' => 'menu-right', 'items_wrap' => '%3$s', 'container' => false ) ); ?>

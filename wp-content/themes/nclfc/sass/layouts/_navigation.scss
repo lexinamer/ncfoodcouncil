@@ -91,10 +91,14 @@
   .menu-toggle {
     display: none;
     position: absolute;
-    top: 2em;
+    top: 1.5em;
     right: 2em;
     z-index: 30;
     text-transform: uppercase;
+		background: transparent;
+		color: white;
+		padding: 10px;
+		cursor: pointer;
   }
 
   ul {
@@ -106,6 +110,7 @@
 
     li {
       float: none;
+			line-height: 70px;
 
       a {
         width: 100%;
@@ -115,13 +120,16 @@
       ul {
         padding-top: 0;
         width: 100%;
+				position: static;
+
+				li {
+					a {
+						padding: 0;
+					}
+				}
       }
     }
   }
-}
-
-.mobile.toggled ul {
-	display: block;
 }
 
 
@@ -144,4 +152,8 @@
   .mobile {
     display: block;
   }
+
+	.focus>ul {
+		display: block;
+	}
 }

@@ -16,6 +16,10 @@
 
     img {
       width: 120px;
+
+      @media #{$small-and-down} {
+        width: 90px;
+      }
     }
   }
 

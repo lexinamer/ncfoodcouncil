@@ -303,13 +303,28 @@ h1 {
   font-weight: 700;
   font-size: 45px;
 }
+@media only screen and (max-width : 769px) {
+  h1 {
+    font-size: 40px;
+  }
+}
 h2 {
   font-weight: 800;
   font-size: 40px;
 }
+@media only screen and (max-width : 769px) {
+  h2 {
+    font-size: 35px;
+  }
+}
 h3 {
   font-weight: 500;
   font-size: 35px;
+}
+@media only screen and (max-width : 769px) {
+  h3 {
+    font-size: 30px;
+  }
 }
 p {
   font-weight: 400;
@@ -319,6 +334,11 @@ p {
 p.larger {
   font-weight: 300;
   font-size: 25px;
+}
+@media only screen and (max-width : 769px) {
+  p.larger {
+    font-size: 22px;
+  }
 }
 a {
   color: #338d51;
@@ -380,6 +400,11 @@ a:hover {
 .nav-links {
   display: flex;
   justify-content: space-between;
+}
+@media only screen and (max-width : 769px) {
+  .nav-links {
+    font-size: 14px;
+  }
 }
 .nav-links .nav-previous {
   background: #338d51;
@@ -489,10 +514,14 @@ a:hover {
 .mobile .menu-toggle {
   display: none;
   position: absolute;
-  top: 2em;
+  top: 1.5em;
   right: 2em;
   z-index: 30;
   text-transform: uppercase;
+  background: transparent;
+  color: white;
+  padding: 10px;
+  cursor: pointer;
 }
 .mobile ul {
   background: #1c6c37;
@@ -503,6 +532,7 @@ a:hover {
 }
 .mobile ul li {
   float: none;
+  line-height: 70px;
 }
 .mobile ul li a {
   width: 100%;
@@ -511,9 +541,10 @@ a:hover {
 .mobile ul li ul {
   padding-top: 0;
   width: 100%;
+  position: static;
 }
-.mobile.toggled ul {
-  display: block;
+.mobile ul li ul li a {
+  padding: 0;
 }
 @media only screen and (max-width : 950px) {
   .main-navigation ul {
@@ -526,6 +557,9 @@ a:hover {
     display: block;
   }
   .mobile {
+    display: block;
+  }
+  .focus > ul {
     display: block;
   }
 }
@@ -686,8 +720,9 @@ header .custom-logo-link .custom-logo {
   .home .hero-buttons .btn-home {
     display: block;
     margin: 0;
-    width: 80%;
+    width: 70%;
     margin: 10px auto;
+    padding: 20px;
   }
 }
 .home .callout {
@@ -698,6 +733,11 @@ header .custom-logo-link .custom-logo {
   color: white;
   display: flex;
   justify-content: space-between;
+}
+@media only screen and (max-width : 769px) {
+  .home .callout {
+    padding: 1em;
+  }
 }
 .home .callout img {
   object-fit: contain;
@@ -757,8 +797,19 @@ header .custom-logo-link .custom-logo {
   display: flex;
   height: 300px;
 }
+@media only screen and (max-width : 769px) {
+  .post {
+    height: auto;
+    flex-direction: column;
+  }
+}
 .post .post-thumbnail {
   width: 100%;
+}
+@media only screen and (max-width : 769px) {
+  .post .post-thumbnail {
+    height: 150px;
+  }
 }
 .post .post-thumbnail img {
   width: 100%;
@@ -774,8 +825,19 @@ header .custom-logo-link .custom-logo {
 .post:not(:first-child) {
   width: 47%;
 }
+@media only screen and (max-width : 950px) {
+  .post:not(:first-child) {
+    width: 45%;
+  }
+}
+@media only screen and (max-width : 769px) {
+  .post:not(:first-child) {
+    width: 100%;
+  }
+}
 .post:not(:first-child) .post-excerpt {
   background: #1c6c37;
+  background: #ffa741;
 }
 .content {
   background: #f6edca;
@@ -796,6 +858,11 @@ header .custom-logo-link .custom-logo {
 }
 .icon-list-row .icon-img img {
   width: 120px;
+}
+@media only screen and (max-width : 769px) {
+  .icon-list-row .icon-img img {
+    width: 90px;
+  }
 }
 .icon-list-row .icon-cnt {
   flex: 2 1 0;

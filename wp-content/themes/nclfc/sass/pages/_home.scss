@@ -29,8 +29,9 @@
         @media #{$small-and-down} {
           display: block;
           margin: 0;
-          width: 80%;
+          width: 70%;
           margin: 10px auto;
+          padding: 20px;
         }
       }
     }
@@ -45,6 +46,10 @@
     color: white;
     display: flex;
     justify-content: space-between;
+
+    @media #{$small-and-down} {
+      padding: 1em;
+    }
 
     img {
       object-fit: contain;

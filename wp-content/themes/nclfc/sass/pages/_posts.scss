@@ -14,8 +14,17 @@
   display: flex;
   height: 300px;
 
+  @media #{$small-and-down} {
+    height: auto;
+    flex-direction: column;
+  }
+
   .post-thumbnail {
     width: 100%;
+
+    @media #{$small-and-down} {
+      height: 150px;
+    }
 
     img {
       width: 100%;
@@ -35,8 +44,17 @@
   &:not(:first-child) {
     width: 47%;
 
+    @media #{$medium-and-down} {
+      width: 45%;
+    }
+
+    @media #{$small-and-down} {
+      width: 100%;
+    }
+
     .post-excerpt {
       background: $color-green;
+      background: $color-orange;
     }
   }
 }

@@ -17,6 +17,10 @@
   display: flex;
   justify-content: space-between;
 
+  @media #{$small-and-down} {
+    font-size: 14px;
+  }
+
   .nav-previous {
     background: $color-green-light;
     padding: 10px 20px 10px 0;
